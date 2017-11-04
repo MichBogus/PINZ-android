@@ -1,8 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
+
     defaultConfig {
         applicationId "com.wsinz"
         minSdkVersion 19
@@ -10,21 +13,54 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    def appDependencies = rootProject.ext.appDependencies
+    def viewDependencies = rootProject.ext.viewDependencies
+    def diDependencies = rootProject.ext.diDependencies
+    def networkDependencies = rootProject.ext.networkDependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    compile viewDependencies.supportCore
+    compile viewDependencies.supportAppCompat
+    compile viewDependencies.supportDesign
+
+    compile appDependencies.multidex
+    compile appDependencies.kotlin
+    compile appDependencies.rxandroid
+    compile appDependencies.rxjava
+    compile appDependencies.rxkotlin
+    compile appDependencies.joda
+
+    compile diDependencies.koin
+
+    compile networkDependencies.retrofit
+    compile networkDependencies.retrofitRx
+    compile networkDependencies.gson
+    compile networkDependencies.okhttp
+    compile networkDependencies.interceptor
+
+    testCompile testDependencies.junit
+    testCompile testDependencies.mockito
+    testCompile(testDependencies.mockitoKotlin) {
+        exclude module: 'org.mockito'
+    }
+    testCompile testDependencies.assertJ
+    testCompile(testDependencies.assertJAndroid) {
+        exclude group: 'com.android.support'
+    }
 }
