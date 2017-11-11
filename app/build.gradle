@@ -38,6 +38,7 @@ dependencies {
     compile viewDependencies.supportCore
     compile viewDependencies.supportAppCompat
     compile viewDependencies.supportDesign
+    compile viewDependencies.constraintLayout
 
     compile appDependencies.multidex
     compile appDependencies.kotlin
