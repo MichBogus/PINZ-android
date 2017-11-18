@@ -16,7 +16,7 @@ ext {
     assertJ_android_version = '1.1.1'
     ok_http_version = '3.6.0'
     glide_version = '3.7.0'
-    glide_transofrmation_version = '2.0.2'
+    glide_transformations_version = '3.0.1'
     google_play_services_version = '3.1.0'
     joda_time_version = '2.9.9'
     interceptor_version = '3.9.0'
@@ -36,7 +36,8 @@ ext {
             supportAppCompat            : "com.android.support:appcompat-v7:$support_library_version",
             supportDesign               : "com.android.support:design:$support_library_version",
             constraintLayout            : "com.android.support.constraint:constraint-layout:$constraint_version",
-            glide                       : "com.github.bumptech.glide:glide:$glide_version"
+            glide                       : "com.github.bumptech.glide:glide:$glide_version",
+            glideTransformation         : "jp.wasabeef:glide-transformations:$glide_transformations_version"
     ]
 
     diDependencies = [

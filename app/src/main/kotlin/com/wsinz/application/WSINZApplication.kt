@@ -1,6 +1,7 @@
 package com.wsinz.application
 
 import android.support.multidex.MultiDexApplication
+import com.wsinz.di.NavigationModule
 import com.wsinz.di.NetworkConnectionModule
 import com.wsinz.di.NetworkModule
 import com.wsinz.di.PresenterModule
@@ -11,7 +12,8 @@ class WSINZApplication : MultiDexApplication() {
     private val modules = listOf(
             NetworkModule(),
             NetworkConnectionModule(),
-            PresenterModule()
+            PresenterModule(),
+            NavigationModule()
     )
 
     override fun onCreate() {

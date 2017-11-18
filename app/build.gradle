@@ -39,6 +39,8 @@ dependencies {
     compile viewDependencies.supportAppCompat
     compile viewDependencies.supportDesign
     compile viewDependencies.constraintLayout
+    compile viewDependencies.glide
+    compile viewDependencies.glideTransformation
 
     compile appDependencies.multidex
     compile appDependencies.kotlin
