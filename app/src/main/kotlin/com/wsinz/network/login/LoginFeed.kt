@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient
 class LoginFeed(okHttpClient: OkHttpClient) : BaseService<LoginRetrofitApi>(okHttpClient), LoginFeedApi {
 
     override fun login(loginBody: LoginBody): Single<BaseResponse> =
-            restAdapter(endpoint = "login/").login(loginBody)
+            restAdapter(endpoint = "login").login(loginBody)
 
     override fun getGenericParameter(): Class<LoginRetrofitApi> =
             LoginRetrofitApi::class.java

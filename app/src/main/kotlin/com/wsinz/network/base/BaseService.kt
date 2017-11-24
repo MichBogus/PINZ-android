@@ -10,12 +10,13 @@ abstract class BaseService<T>(val client: OkHttpClient) {
     private var restAdapter: T? = null
     private var currentBaseUrl: String? = null
 
-    protected fun restAdapter(baseUrl: String = "http://localhost:8080/", endpoint: String = ""): T {
+    protected fun restAdapter(baseUrl: String = "http://192.168.8.242:8080/", endpoint: String = ""): T {
         val refinedEndpoint = if (endpoint.endsWith("/").not()) {
             endpoint + "/"
         } else {
             endpoint
         }
+
         val refinedBaseUrl = if (baseUrl.endsWith("/").not()) {
             baseUrl + "/" + refinedEndpoint
         } else {

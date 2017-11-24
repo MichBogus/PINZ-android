@@ -10,7 +10,7 @@ class PresenterModule : AndroidModule() {
     override fun context(): Context = applicationContext {
         context(name = "Presenter") {
             provide {
-                LoginPresenterImpl(get(), get(), get())
+                LoginPresenterImpl(get(), get(), get(), get())
             } bind LoginPresenter::class
         }
     }

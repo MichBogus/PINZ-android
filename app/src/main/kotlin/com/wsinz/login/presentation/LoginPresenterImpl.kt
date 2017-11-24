@@ -1,13 +1,15 @@
 package com.wsinz.login.presentation
 
 import com.wsinz.base.AndroidNavigator
+import com.wsinz.coredomain.UserCore
 import com.wsinz.login.domain.LoginService
 import com.wsinz.network.base.NetworkScheduler
 import io.reactivex.functions.Consumer
 
 class LoginPresenterImpl(private val androidNavigator: AndroidNavigator,
                          private val loginService: LoginService,
-                         private val networkScheduler: NetworkScheduler) : LoginPresenter<LoginView> {
+                         private val networkScheduler: NetworkScheduler,
+                         private val userCore: UserCore) : LoginPresenter<LoginView> {
 
     var view: LoginView? = null
 
