@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".register.registercompany.RegisterCompanyActivity"
+            android:name=".register.registercompany.presentation.RegisterCompanyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".register.registeruser.RegisterUserActivity"
