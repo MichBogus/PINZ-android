@@ -11,7 +11,7 @@ class NavigationModule : AndroidModule() {
 
     override fun context(): Context = applicationContext {
         context(name = "Navigation") {
-            provide { AndroidNavigatorImpl() } bind AndroidNavigator::class
+            provide { AndroidNavigatorImpl(get()) } bind AndroidNavigator::class
             provide("UserCore", true, { UserCoreImpl() }) bind UserCore::class
         }
     }
