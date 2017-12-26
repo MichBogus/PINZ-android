@@ -2,4 +2,10 @@
     <string name="app_name">WSINZ</string>
     <string name="login_button">Login</string>
     <string name="register_button">Register</string>
+
+    <string name="dialog_ok_button">OK</string>
+
+    <string name="register_company_success_title">Yaahooo!</string>
+    <string name="register_company_success_message">Your company has been registered</string>
+    <string name="register_company_error_title">Oh no!</string>
 </resources>

@@ -21,6 +21,7 @@ ext {
     joda_time_version = '2.9.9'
     interceptor_version = '3.9.0'
     koin_version = '0.5.1'
+    awesome_dialogs_version = '2.0.5'
 
     appDependencies = [
             multidex                    : "com.android.support:multidex:$mutlidex_version",
@@ -37,7 +38,8 @@ ext {
             supportDesign               : "com.android.support:design:$support_library_version",
             constraintLayout            : "com.android.support.constraint:constraint-layout:$constraint_version",
             glide                       : "com.github.bumptech.glide:glide:$glide_version",
-            glideTransformation         : "jp.wasabeef:glide-transformations:$glide_transformations_version"
+            glideTransformation         : "jp.wasabeef:glide-transformations:$glide_transformations_version",
+            awesomeDialogs              : "com.github.blennerSilva:AwesomeDialog:$awesome_dialogs_version"
     ]
 
     diDependencies = [

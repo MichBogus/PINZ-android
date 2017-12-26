@@ -1,5 +1,7 @@
 package com.wsinz.di
 
+import com.wsinz.base.dialog.DialogPresentation
+import com.wsinz.base.dialog.DialogPresentationImpl
 import com.wsinz.login.presentation.LoginPresenter
 import com.wsinz.login.presentation.LoginPresenterImpl
 import com.wsinz.register.registercompany.presentation.RegisterCompanyPresenter
@@ -23,6 +25,10 @@ class PresenterModule : AndroidModule() {
             provide {
                 RegisterUserPresenterImpl()
             } bind RegisterUserPresenter::class
+        }
+
+        context(name = "Dialogs") {
+            provide { DialogPresentationImpl(get()) } bind DialogPresentation::class
         }
     }
 

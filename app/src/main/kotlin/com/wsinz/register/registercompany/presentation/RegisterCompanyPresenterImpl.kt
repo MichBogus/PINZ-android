@@ -1,5 +1,6 @@
 package com.wsinz.register.registercompany.presentation
 
+import com.wsinz.network.base.AppWSErrorThrowable
 import com.wsinz.network.base.NetworkScheduler
 import com.wsinz.network.register.model.CompanyAddress
 import com.wsinz.network.register.model.RegisterCompanyBody
@@ -27,20 +28,25 @@ class RegisterCompanyPresenterImpl(private val registerCompanyService: RegisterC
                                  companyCity: String) {
         view?.showRegisterButtonProgress()
         networkScheduler.schedule(registerCompanyService.registerCompany(RegisterCompanyBody(companyName,
-                                                                                             CompanyAddress(
-                                                                                                     companyStreet,
-                                                                                                     companyStreetNumber,
-                                                                                                     companyCity),
-                                                                                             companyNip)),
-                                  Consumer { onRegisterSuccess() },
-                                  Consumer { onRegisterFail(it) })
+                CompanyAddress(
+                        companyStreet,
+                        companyStreetNumber,
+                        companyCity),
+                companyNip)),
+                Consumer { onRegisterSuccess() },
+                Consumer { onRegisterFail(it) })
     }
 
     private fun onRegisterSuccess() {
         view?.hideRegisterButtonProgress()
+        view?.showRegisterSuccessDialog { view?.returnToMainScreen() }
     }
 
     private fun onRegisterFail(throwable: Throwable) {
         view?.hideRegisterButtonProgress()
+
+        if (throwable is AppWSErrorThrowable) {
+            view?.showRegisterErrorDialog(throwable.error?.reason!!, {})
+        }
     }
 }

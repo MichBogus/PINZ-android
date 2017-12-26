@@ -41,6 +41,7 @@ dependencies {
     compile viewDependencies.constraintLayout
     compile viewDependencies.glide
     compile viewDependencies.glideTransformation
+    compile viewDependencies.awesomeDialogs
 
     compile appDependencies.multidex
     compile appDependencies.kotlin

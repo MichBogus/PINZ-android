@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.dialog.DialogPresentation
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_register_company.*
 import org.koin.android.ext.android.inject
@@ -19,6 +20,7 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
     }
 
     val presenter: RegisterCompanyPresenter<RegisterCompanyView> by inject()
+    val dialogs: DialogPresentation by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +51,25 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
     private fun setListeners() {
         register_button.setOnClickListener {
             presenter.registerCompany(company_name_input.text.toString(),
-                                      company_nip_input.text.toString(),
-                                      company_address_street_input.text.toString(),
-                                      company_address_street_number_input.text.toString(),
-                                      company_address_city_input.text.toString())
+                    company_nip_input.text.toString(),
+                    company_address_street_input.text.toString(),
+                    company_address_street_number_input.text.toString(),
+                    company_address_city_input.text.toString())
         }
+    }
+
+    override fun showRegisterSuccessDialog(onDismissAction: () -> Unit) {
+        dialogs.showSuccessDialog(this,
+                this.getString(R.string.register_company_success_title),
+                this.getString(R.string.register_company_success_message),
+                onDismissAction)
+    }
+
+    override fun showRegisterErrorDialog(reason: String, onDismissAction: () -> Unit) {
+        dialogs.showErrorDialog(this,
+                this.getString(R.string.register_company_error_title),
+                reason,
+                onDismissAction)
     }
 
     override fun hideRegisterButtonProgress() {
@@ -65,4 +81,9 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
         register_button_progress.visibility = View.VISIBLE
         register_button.text = ""
     }
+
+    override fun returnToMainScreen() {
+        onBackPressed()
+    }
+
 }

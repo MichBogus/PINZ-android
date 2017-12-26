@@ -9,7 +9,7 @@ import okhttp3.OkHttpClient
 class RegisterCompanyFeed(okHttpClient: OkHttpClient) : BaseService<RegisterRetrofitApi>(okHttpClient), RegisterCompanyFeedApi {
 
     override fun registerCompany(registerCompanyBody: RegisterCompanyBody): Single<BaseResponse> =
-            restAdapter("register").registerCompany(registerCompanyBody)
+            restAdapter(endpoint = "register").registerCompany(registerCompanyBody)
 
     override fun getGenericParameter(): Class<RegisterRetrofitApi> = RegisterRetrofitApi::class.java
 }

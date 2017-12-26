@@ -1,0 +1,9 @@
+package com.wsinz.base.dialog
+
+import android.content.Context
+
+interface DialogPresentation {
+
+    fun showSuccessDialog(context: Context, title: String, message: String, onDismissAction: () -> Unit)
+    fun showErrorDialog(context: Context, title: String, message: String, onDismissAction: () -> Unit)
+}

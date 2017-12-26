@@ -1,10 +1,7 @@
 package com.wsinz.application
 
 import android.support.multidex.MultiDexApplication
-import com.wsinz.di.NavigationModule
-import com.wsinz.di.NetworkConnectionModule
-import com.wsinz.di.NetworkModule
-import com.wsinz.di.PresenterModule
+import com.wsinz.di.*
 import org.koin.android.ext.android.startAndroidContext
 
 class WSINZApplication : MultiDexApplication() {
@@ -13,7 +10,8 @@ class WSINZApplication : MultiDexApplication() {
             NetworkModule(),
             NetworkConnectionModule(),
             PresenterModule(),
-            NavigationModule()
+            NavigationModule(),
+            UtilModule()
     )
 
     override fun onCreate() {
