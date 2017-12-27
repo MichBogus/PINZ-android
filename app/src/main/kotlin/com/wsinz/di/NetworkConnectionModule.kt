@@ -10,6 +10,8 @@ import com.wsinz.network.register.RegisterUserFeed
 import com.wsinz.network.register.RegisterUserFeedApi
 import com.wsinz.register.registercompany.domain.RegisterCompanyService
 import com.wsinz.register.registercompany.domain.RegisterCompanyServiceImpl
+import com.wsinz.register.registeruser.domain.RegisterUserService
+import com.wsinz.register.registeruser.domain.RegisterUserServiceImpl
 import org.koin.android.module.AndroidModule
 import org.koin.dsl.context.Context
 
@@ -23,6 +25,7 @@ class NetworkConnectionModule : AndroidModule() {
             provide { RegisterCompanyFeed(get()) } bind RegisterCompanyFeedApi::class
             provide { RegisterUserFeed(get()) } bind RegisterUserFeedApi::class
             provide { RegisterCompanyServiceImpl(get()) } bind RegisterCompanyService::class
+            provide { RegisterUserServiceImpl(get()) } bind RegisterUserService::class
         }
     }
 }
