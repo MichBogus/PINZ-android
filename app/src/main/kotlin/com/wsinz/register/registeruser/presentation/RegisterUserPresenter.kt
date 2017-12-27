@@ -8,4 +8,5 @@ interface RegisterUserPresenter<PresenterView> {
     fun detach()
 
     fun register(body: RegisterUserBody)
+    fun validatePassword(password: String, passwordConfirmation: String)
 }

@@ -23,7 +23,7 @@ class PresenterModule : AndroidModule() {
                 RegisterCompanyPresenterImpl(get(), get())
             } bind RegisterCompanyPresenter::class
             provide {
-                RegisterUserPresenterImpl()
+                RegisterUserPresenterImpl(get(), get())
             } bind RegisterUserPresenter::class
         }
 

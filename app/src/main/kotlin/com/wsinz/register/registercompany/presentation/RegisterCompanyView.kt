@@ -5,6 +5,6 @@ interface RegisterCompanyView {
     fun showRegisterButtonProgress()
     fun hideRegisterButtonProgress()
     fun showRegisterSuccessDialog(onDismissAction: () -> Unit)
-    fun showRegisterErrorDialog(reason: String, onDismissAction: () -> Unit)
+    fun showRegisterErrorDialog(reason: String = "", onDismissAction: () -> Unit)
     fun returnToMainScreen()
 }

@@ -66,9 +66,15 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
     }
 
     override fun showRegisterErrorDialog(reason: String, onDismissAction: () -> Unit) {
+        val errorMessage = if (reason.isEmpty()) {
+            getString(R.string.dialog_connection_problem)
+        } else {
+            reason
+        }
+
         dialogs.showErrorDialog(this,
                 this.getString(R.string.register_company_error_title),
-                reason,
+                errorMessage,
                 onDismissAction)
     }
 

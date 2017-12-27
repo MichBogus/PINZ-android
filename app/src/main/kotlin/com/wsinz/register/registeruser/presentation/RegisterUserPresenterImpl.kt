@@ -26,6 +26,19 @@ class RegisterUserPresenterImpl(private val registerUserService: RegisterUserSer
                 Consumer { onFailRegister(it) })
     }
 
+    override fun validatePassword(password: String, passwordConfirmation: String) {
+        if (password.isEmpty() || passwordConfirmation.isEmpty()) {
+            view?.hidePasswordError()
+            return
+        }
+
+        if (password == passwordConfirmation) {
+            view?.hidePasswordError()
+        } else {
+            view?.showPasswordError()
+        }
+    }
+
     private fun onSuccessRegister() {
         view?.hideRegisterButtonProgress()
         view?.showRegisterSuccessDialog { view?.returnToMainScreen() }
@@ -36,6 +49,8 @@ class RegisterUserPresenterImpl(private val registerUserService: RegisterUserSer
 
         if (throwable is AppWSErrorThrowable) {
             view?.showRegisterErrorDialog(throwable.error?.reason!!, {})
+        } else {
+            view?.showRegisterErrorDialog { }
         }
     }
 }

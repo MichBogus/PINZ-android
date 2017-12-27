@@ -47,6 +47,8 @@ class RegisterCompanyPresenterImpl(private val registerCompanyService: RegisterC
 
         if (throwable is AppWSErrorThrowable) {
             view?.showRegisterErrorDialog(throwable.error?.reason!!, {})
+        } else {
+            view?.showRegisterErrorDialog { }
         }
     }
 }
