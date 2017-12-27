@@ -7,7 +7,7 @@
     <string name="dialog_connection_problem">There is problem with internet connection</string>
 
     <string name="register_company_success_title">Yaahooo!</string>
-    <string name="register_company_success_message">Your company has been registered</string>
+    <string name="register_company_success_message">Your company has been registered, your company code is: %s </string>
     <string name="register_company_error_title">Oh no!</string>
 
     <string name="register_user_success_title">Yaahooo!</string>
@@ -15,5 +15,7 @@
     <string name="register_user_error_title">Oh no!</string>
 
     <string name="register_user_password_confirmation_error">Password does not match</string>
+
+    <string name="login_error_title">Oh no!</string>
 
 </resources>

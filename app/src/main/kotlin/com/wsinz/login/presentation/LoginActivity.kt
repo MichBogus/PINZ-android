@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.dialog.DialogPresentation
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.ext.android.inject
@@ -13,6 +14,7 @@ import org.koin.android.ext.android.inject
 class LoginActivity : BaseActivity(), LoginView {
 
     private val presenter: LoginPresenter<LoginView> by inject()
+    private val dialogs: DialogPresentation by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +57,22 @@ class LoginActivity : BaseActivity(), LoginView {
     override fun hideLoginButtonProgress() {
         login_button.text = this.getText(R.string.login_button)
         login_button_progress.visibility = View.GONE
+    }
+
+    override fun showErrorDialog(reason: String, onDismissAction: () -> Unit) {
+        val errorMessage = if (reason.isEmpty()) {
+            getString(R.string.dialog_connection_problem)
+        } else {
+            reason
+        }
+
+        dialogs.showErrorDialog(this,
+                this.getString(R.string.login_error_title),
+                errorMessage,
+                onDismissAction)
+    }
+
+    override fun loginUser() {
+
     }
 }

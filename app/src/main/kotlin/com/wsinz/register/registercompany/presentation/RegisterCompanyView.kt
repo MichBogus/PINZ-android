@@ -2,9 +2,9 @@ package com.wsinz.register.registercompany.presentation
 
 interface RegisterCompanyView {
 
-    fun showRegisterButtonProgress()
-    fun hideRegisterButtonProgress()
-    fun showRegisterSuccessDialog(onDismissAction: () -> Unit)
-    fun showRegisterErrorDialog(reason: String = "", onDismissAction: () -> Unit)
+    fun showButtonProgress()
+    fun hideButtonProgress()
+    fun showCompanySuccessDialog(companyCode: String, onDismissAction: () -> Unit)
+    fun showErrorDialog(reason: String = "", onDismissAction: () -> Unit)
     fun returnToMainScreen()
 }

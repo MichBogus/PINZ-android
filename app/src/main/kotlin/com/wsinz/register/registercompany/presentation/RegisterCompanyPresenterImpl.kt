@@ -4,6 +4,7 @@ import com.wsinz.network.base.AppWSErrorThrowable
 import com.wsinz.network.base.NetworkScheduler
 import com.wsinz.network.register.model.CompanyAddress
 import com.wsinz.network.register.model.RegisterCompanyBody
+import com.wsinz.network.register.modelresponse.RegisterCompanyResponse
 import com.wsinz.register.registercompany.domain.RegisterCompanyService
 import io.reactivex.functions.Consumer
 
@@ -26,29 +27,29 @@ class RegisterCompanyPresenterImpl(private val registerCompanyService: RegisterC
                                  companyStreet: String,
                                  companyStreetNumber: String,
                                  companyCity: String) {
-        view?.showRegisterButtonProgress()
+        view?.showButtonProgress()
         networkScheduler.schedule(registerCompanyService.registerCompany(RegisterCompanyBody(companyName,
                 CompanyAddress(
                         companyStreet,
                         companyStreetNumber,
                         companyCity),
                 companyNip)),
-                Consumer { onRegisterSuccess() },
+                Consumer { onRegisterSuccess(it) },
                 Consumer { onRegisterFail(it) })
     }
 
-    private fun onRegisterSuccess() {
-        view?.hideRegisterButtonProgress()
-        view?.showRegisterSuccessDialog { view?.returnToMainScreen() }
+    private fun onRegisterSuccess(response: RegisterCompanyResponse) {
+        view?.hideButtonProgress()
+        view?.showCompanySuccessDialog(response.companyCode, { view?.returnToMainScreen() })
     }
 
     private fun onRegisterFail(throwable: Throwable) {
-        view?.hideRegisterButtonProgress()
+        view?.hideButtonProgress()
 
         if (throwable is AppWSErrorThrowable) {
-            view?.showRegisterErrorDialog(throwable.error?.reason!!, {})
+            view?.showErrorDialog(throwable.error?.reason!!, {})
         } else {
-            view?.showRegisterErrorDialog { }
+            view?.showErrorDialog { }
         }
     }
 }

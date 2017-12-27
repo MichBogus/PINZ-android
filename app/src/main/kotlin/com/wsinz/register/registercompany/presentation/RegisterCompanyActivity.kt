@@ -58,14 +58,14 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
         }
     }
 
-    override fun showRegisterSuccessDialog(onDismissAction: () -> Unit) {
+    override fun showCompanySuccessDialog(companyCode: String, onDismissAction: () -> Unit) {
         dialogs.showSuccessDialog(this,
                 this.getString(R.string.register_company_success_title),
-                this.getString(R.string.register_company_success_message),
+                String.format(this.getString(R.string.register_company_success_message), companyCode),
                 onDismissAction)
     }
 
-    override fun showRegisterErrorDialog(reason: String, onDismissAction: () -> Unit) {
+    override fun showErrorDialog(reason: String, onDismissAction: () -> Unit) {
         val errorMessage = if (reason.isEmpty()) {
             getString(R.string.dialog_connection_problem)
         } else {
@@ -78,12 +78,12 @@ class RegisterCompanyActivity : BaseActivity(), RegisterCompanyView {
                 onDismissAction)
     }
 
-    override fun hideRegisterButtonProgress() {
+    override fun hideButtonProgress() {
         register_button_progress.visibility = View.GONE
         register_button.text = this.getString(R.string.register_button)
     }
 
-    override fun showRegisterButtonProgress() {
+    override fun showButtonProgress() {
         register_button_progress.visibility = View.VISIBLE
         register_button.text = ""
     }

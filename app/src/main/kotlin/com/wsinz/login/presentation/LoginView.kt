@@ -4,4 +4,6 @@ interface LoginView {
 
     fun showLoginButtonProgress()
     fun hideLoginButtonProgress()
+    fun showErrorDialog(reason: String = "", onDismissAction: () -> Unit)
+    fun loginUser()
 }
