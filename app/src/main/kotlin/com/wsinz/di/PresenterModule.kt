@@ -4,6 +4,8 @@ import com.wsinz.base.dialog.DialogPresentation
 import com.wsinz.base.dialog.DialogPresentationImpl
 import com.wsinz.login.presentation.LoginPresenter
 import com.wsinz.login.presentation.LoginPresenterImpl
+import com.wsinz.main.MainPresenter
+import com.wsinz.main.MainPresenterImpl
 import com.wsinz.register.registercompany.presentation.RegisterCompanyPresenter
 import com.wsinz.register.registercompany.presentation.RegisterCompanyPresenterImpl
 import com.wsinz.register.registeruser.presentation.RegisterUserPresenter
@@ -25,6 +27,10 @@ class PresenterModule : AndroidModule() {
             provide {
                 RegisterUserPresenterImpl(get(), get())
             } bind RegisterUserPresenter::class
+
+            provide {
+                MainPresenterImpl(get())
+            } bind MainPresenter::class
         }
 
         context(name = "Dialogs") {

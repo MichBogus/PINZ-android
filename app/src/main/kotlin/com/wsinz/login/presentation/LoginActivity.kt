@@ -1,5 +1,7 @@
 package com.wsinz.login.presentation
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
@@ -7,11 +9,16 @@ import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
 import com.wsinz.base.dialog.DialogPresentation
+import com.wsinz.register.registeruser.RegisterUserActivity
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.android.ext.android.inject
 
 class LoginActivity : BaseActivity(), LoginView {
+
+    companion object {
+        fun createIntent(context: Context) = Intent(context, LoginActivity::class.java)
+    }
 
     private val presenter: LoginPresenter<LoginView> by inject()
     private val dialogs: DialogPresentation by inject()
@@ -72,7 +79,7 @@ class LoginActivity : BaseActivity(), LoginView {
                 onDismissAction)
     }
 
-    override fun loginUser() {
-
+    override fun closeActivity() {
+        finish()
     }
 }

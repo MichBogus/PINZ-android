@@ -1,11 +1,16 @@
 package com.wsinz.base
 
 import android.content.Context
+import com.wsinz.login.presentation.LoginActivity
 import com.wsinz.main.MainActivity
 import com.wsinz.register.registercompany.presentation.RegisterCompanyActivity
 import com.wsinz.register.registeruser.RegisterUserActivity
 
 class AndroidNavigatorImpl(private val context: Context) : AndroidNavigator {
+
+    override fun openLoginActivity() {
+        context.startActivity(LoginActivity.createIntent(context))
+    }
 
     override fun openRegisterUser() {
         context.startActivity(RegisterUserActivity.createIntent(context))

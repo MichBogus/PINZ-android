@@ -33,7 +33,8 @@ class LoginPresenterImpl(private val androidNavigator: AndroidNavigator,
     private fun onSuccessLogin(loginResponse: LoginResponse) {
         view?.hideLoginButtonProgress()
         userCore.saveAuthToken(loginResponse.authToken)
-        view?.loginUser()
+        androidNavigator.openMainActivity()
+        view?.closeActivity()
     }
 
     private fun onFailLogin(throwable: Throwable) {
