@@ -19,7 +19,7 @@ class MainPresenterImpl(private val androidNavigator: AndroidNavigator) : MainPr
     }
 
     override fun scanNewItems() {
-
+        androidNavigator.openScanItemsActivity()
     }
 
     override fun logout() {

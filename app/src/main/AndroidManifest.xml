@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".application.WSINZApplication"
@@ -24,6 +25,8 @@
         <activity android:name=".register.registercompany.presentation.RegisterCompanyActivity" />
         <activity android:name=".register.registeruser.RegisterUserActivity" />
         <activity android:name=".main.MainActivity" />
+        <activity android:name=".scanitem.ScanItemsActivity" />
+        <activity android:name=".myitems.MyItemsActivity" />
     </application>
 
 </manifest>
