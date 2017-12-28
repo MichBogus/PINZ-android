@@ -11,21 +11,25 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
         <RelativeLayout
             android:id="@+id/my_items_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="58dp"
+            android:layout_marginRight="4dp"
             android:layout_toLeftOf="@+id/center_shim"
-            android:layout_toStartOf="@+id/center_shim">
+            android:layout_toStartOf="@+id/center_shim"
+            android:background="@drawable/green_rectangle_field">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_above="@+id/my_items_button_text"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_my_items" />
 
             <TextView
                 android:id="@+id/my_items_button_text"
@@ -36,7 +40,7 @@
                 android:text="@string/main_my_items_button"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="22sp" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
@@ -50,15 +54,18 @@
             android:id="@+id/scan_item_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="58dp"
+            android:layout_marginLeft="4dp"
             android:layout_toEndOf="@+id/center_shim"
-            android:layout_toRightOf="@+id/center_shim">
+            android:layout_toRightOf="@+id/center_shim"
+            android:background="@drawable/green_rectangle_field">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_above="@+id/scan_item_button_text"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_scan_item" />
 
             <TextView
                 android:id="@+id/scan_item_button_text"
@@ -69,7 +76,7 @@
                 android:text="@string/main_scan_button"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="22sp" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
@@ -78,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/green_rectangle_field"
             android:gravity="center"
             android:text="@string/main_log_out_button"
             android:textAlignment="center"
