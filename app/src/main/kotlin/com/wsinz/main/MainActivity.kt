@@ -2,11 +2,14 @@ package com.wsinz.main
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.util.PermissionProvider.Companion.CAMERA_PERMISSION_CODE
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
@@ -52,5 +55,19 @@ class MainActivity : BaseActivity(), MainView {
 
     override fun closeActivity() {
         finish()
+    }
+
+    override fun showPermissionDialog(permission: String) {
+        ActivityCompat.requestPermissions(this, arrayOf(permission), CAMERA_PERMISSION_CODE)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            CAMERA_PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    presenter.scanNewItems()
+                }
+            }
+        }
     }
 }

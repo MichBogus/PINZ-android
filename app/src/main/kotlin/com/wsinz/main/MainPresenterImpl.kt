@@ -1,8 +1,10 @@
 package com.wsinz.main
 
 import com.wsinz.base.AndroidNavigator
+import com.wsinz.base.util.PermissionProvider
 
-class MainPresenterImpl(private val androidNavigator: AndroidNavigator) : MainPresenter<MainView> {
+class MainPresenterImpl(private val androidNavigator: AndroidNavigator,
+                        private val permissionProvider: PermissionProvider) : MainPresenter<MainView> {
 
     var view: MainView? = null
 
@@ -19,7 +21,11 @@ class MainPresenterImpl(private val androidNavigator: AndroidNavigator) : MainPr
     }
 
     override fun scanNewItems() {
-        androidNavigator.openScanItemsActivity()
+        if (permissionProvider.checkPermission(PermissionProvider.CAMERA_PERMISSION)) {
+            androidNavigator.openScanItemsActivity()
+        } else {
+            view?.showPermissionDialog(PermissionProvider.CAMERA_PERMISSION)
+        }
     }
 
     override fun logout() {

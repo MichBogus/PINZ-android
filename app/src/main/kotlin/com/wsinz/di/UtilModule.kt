@@ -1,5 +1,7 @@
 package com.wsinz.di
 
+import com.wsinz.base.util.PermissionProvider
+import com.wsinz.base.util.PermissionProviderImpl
 import com.wsinz.base.util.StringProvider
 import com.wsinz.base.util.StringProviderImpl
 import org.koin.android.module.AndroidModule
@@ -12,6 +14,9 @@ class UtilModule : AndroidModule() {
             provide {
                 StringProviderImpl(get())
             } bind StringProvider::class
+            provide {
+                PermissionProviderImpl(get())
+            } bind PermissionProvider::class
         }
     }
 }
