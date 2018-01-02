@@ -3,7 +3,6 @@ package com.wsinz.scanitem.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.google.zxing.Result
 import com.wsinz.R
 import com.wsinz.base.BaseActivity

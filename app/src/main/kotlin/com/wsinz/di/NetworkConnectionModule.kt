@@ -2,6 +2,8 @@ package com.wsinz.di
 
 import com.wsinz.login.domain.LoginService
 import com.wsinz.login.domain.LoginServiceImpl
+import com.wsinz.network.items.ItemsListFeed
+import com.wsinz.network.items.ItemsListFeedApi
 import com.wsinz.network.login.LoginFeed
 import com.wsinz.network.login.LoginFeedApi
 import com.wsinz.network.register.RegisterCompanyFeed
@@ -26,6 +28,8 @@ class NetworkConnectionModule : AndroidModule() {
             provide { RegisterUserFeed(get()) } bind RegisterUserFeedApi::class
             provide { RegisterCompanyServiceImpl(get()) } bind RegisterCompanyService::class
             provide { RegisterUserServiceImpl(get()) } bind RegisterUserService::class
+
+            provide { ItemsListFeed(get()) } bind ItemsListFeedApi::class
         }
     }
 }
