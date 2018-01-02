@@ -25,7 +25,7 @@
         <activity android:name=".register.registercompany.presentation.RegisterCompanyActivity" />
         <activity android:name=".register.registeruser.RegisterUserActivity" />
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".scanitem.ScanItemsActivity" />
+        <activity android:name=".scanitem.presentation.ScanItemsActivity" />
         <activity android:name=".myitems.MyItemsActivity" />
     </application>
 

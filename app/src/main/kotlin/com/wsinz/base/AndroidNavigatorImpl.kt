@@ -5,7 +5,7 @@ import com.wsinz.login.presentation.LoginActivity
 import com.wsinz.main.MainActivity
 import com.wsinz.register.registercompany.presentation.RegisterCompanyActivity
 import com.wsinz.register.registeruser.RegisterUserActivity
-import com.wsinz.scanitem.ScanItemsActivity
+import com.wsinz.scanitem.presentation.ScanItemsActivity
 
 class AndroidNavigatorImpl(private val context: Context) : AndroidNavigator {
 
