@@ -20,6 +20,7 @@ class LoginPresenterImpl(private val androidNavigator: AndroidNavigator,
     }
 
     override fun detach() {
+        networkScheduler.disposeAll()
         view = null
     }
 
