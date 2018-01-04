@@ -5,5 +5,5 @@ interface ScanPresenter<PresenterView> {
     fun attach(view: PresenterView)
     fun detach()
 
-    fun validateScannedData(data: String)
+    fun addScannedItem(data: String)
 }

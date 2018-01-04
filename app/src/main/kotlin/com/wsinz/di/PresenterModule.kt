@@ -38,10 +38,10 @@ class PresenterModule : AndroidModule() {
                 MainPresenterImpl(get(), get())
             } bind MainPresenter::class
             provide {
-                ScanPresenterImpl()
+                ScanPresenterImpl(get(), get())
             } bind ScanPresenter::class
             provide {
-                MyItemsPresenterImpl(get(), get())
+                MyItemsPresenterImpl(get(), get(), get())
             } bind MyItemsPresenter::class
         }
 

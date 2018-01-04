@@ -1,6 +1,7 @@
 package com.wsinz.network.items
 
 import com.wsinz.network.base.BaseResponse
+import com.wsinz.network.items.model.AddItemBody
 import com.wsinz.network.items.model.DeleteItemBody
 import com.wsinz.network.items.modelresponse.UserItemsResponse
 import io.reactivex.Single
@@ -17,4 +18,8 @@ interface ItemsRetrofitApi {
     @POST("deleteItem")
     fun deleteItem(@Header("AUTH_TOKEN") authToken: String,
                    @Body deleteItemBody: DeleteItemBody): Single<BaseResponse>
+
+    @POST("addItem")
+    fun addItem(@Header("AUTH_TOKEN") authToken: String,
+                @Body body: AddItemBody): Single<BaseResponse>
 }

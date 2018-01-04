@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.google.zxing.Result
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.dialog.DialogPresentation
 import kotlinx.android.synthetic.main.activity_scan_item.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import org.koin.android.ext.android.inject
@@ -16,7 +17,9 @@ class ScanItemsActivity : BaseActivity(), ZXingScannerView.ResultHandler, ScanVi
         fun createIntent(context: Context) = Intent(context, ScanItemsActivity::class.java)
     }
 
-    val presenter: ScanPresenter<ScanView> by inject()
+    private val presenter: ScanPresenter<ScanView> by inject()
+    private val dialogs: DialogPresentation by inject()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +39,8 @@ class ScanItemsActivity : BaseActivity(), ZXingScannerView.ResultHandler, ScanVi
     }
 
     override fun handleResult(rawResult: Result) {
-        presenter.validateScannedData(rawResult.text)
-
-        scanner.resumeCameraPreview(this)
+        stopCamera()
+        presenter.addScannedItem(rawResult.text)
     }
 
     override fun stopCamera() {
@@ -54,19 +56,38 @@ class ScanItemsActivity : BaseActivity(), ZXingScannerView.ResultHandler, ScanVi
         scanner.resumeCameraPreview(this)
     }
 
-    override fun openItemInformationDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showItemScannedError() {
+        dialogs.showErrorDialog(this,
+                getString(R.string.scan_item_error_title),
+                getString(R.string.scan_item_wrong_qr_message),
+                {})
     }
 
-    override fun addItemToAccount() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun hideProgressDialog() {
+        dialogs.hideProgressDialog(this)
+    }
+
+    override fun showProgressDialog() {
+        dialogs.showProgressDialog(this, getString(R.string.dialog_progress))
     }
 
     override fun showSuccessDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        dialogs.showSuccessDialog(this,
+                getString(R.string.scan_item_success_title),
+                getString(R.string.scan_item_success_message),
+                { startCamera() })
     }
 
-    override fun showErrorDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showErrorDialog(reason: String, dismissDialogAction: () -> Unit) {
+        val errorMessage = if (reason.isEmpty()) {
+            getString(R.string.dialog_connection_problem)
+        } else {
+            reason
+        }
+
+        dialogs.showErrorDialog(this,
+                this.getString(R.string.scan_item_error_title),
+                errorMessage,
+                dismissDialogAction)
     }
 }

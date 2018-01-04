@@ -3,6 +3,7 @@ package com.wsinz.base.dialog
 import android.app.Dialog
 import android.content.Context
 import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeErrorDialog
+import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeProgressDialog
 import com.awesomedialog.blennersilva.awesomedialoglibrary.AwesomeSuccessDialog
 import com.wsinz.R
 import com.wsinz.base.util.StringProvider
@@ -37,6 +38,19 @@ class DialogPresentationImpl(private val stringProvider: StringProvider) : Dialo
                 .show()
 
         currentDialog?.setOnDismissListener { onDismissAction.invoke() }
+    }
+
+    override fun showProgressDialog(context: Context, message: String) {
+        hidePreviousDialog()
+
+        currentDialog = AwesomeProgressDialog(context)
+                .setMessage(message)
+                .setCancelable(false)
+                .show()
+    }
+
+    override fun hideProgressDialog(context: Context) {
+        hidePreviousDialog()
     }
 
     private fun hidePreviousDialog() {

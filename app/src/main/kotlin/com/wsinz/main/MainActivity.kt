@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.dialog.DialogPresentation
 import com.wsinz.base.util.PermissionProvider.Companion.CAMERA_PERMISSION_CODE
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,11 +17,12 @@ import org.koin.android.ext.android.inject
 
 class MainActivity : BaseActivity(), MainView {
 
-    private val presenter: MainPresenter<MainView> by inject()
-
     companion object {
+
         fun createIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
+
+    private val presenter: MainPresenter<MainView> by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
