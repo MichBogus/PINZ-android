@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
 import com.wsinz.base.BaseActivity
+import com.wsinz.base.dialog.DialogPresentation
 import com.wsinz.myitems.adapter.ItemDataHolder
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_my_items.*
@@ -19,7 +20,8 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
         fun createIntent(context: Context) = Intent(context, MyItemsActivity::class.java)
     }
 
-    val presenter: MyItemsPresenter<MyItemsView> by inject()
+    private val presenter: MyItemsPresenter<MyItemsView> by inject()
+    private val dialogs: DialogPresentation by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,4 +58,18 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
     override fun hideProgressBar() {
         my_items_progress.visibility = View.GONE
     }
+
+    override fun showErrorDialog(reason: String, dismissDialogAction: () -> Unit) {
+        val errorMessage = if (reason.isEmpty()) {
+            getString(R.string.dialog_connection_problem)
+        } else {
+            reason
+        }
+
+        dialogs.showErrorDialog(this,
+                this.getString(R.string.my_items_error_title),
+                errorMessage,
+                dismissDialogAction)
+    }
+
 }

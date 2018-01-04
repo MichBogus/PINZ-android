@@ -28,4 +28,6 @@
     <string name="scan_item_wrong_qr_message">Scanned QR code is wrong</string>
     <string name="scan_item_success_message">Scanned item has been connected with your account</string>
 
+    <string name="my_items_error_title">Oh no!</string>
+
 </resources>

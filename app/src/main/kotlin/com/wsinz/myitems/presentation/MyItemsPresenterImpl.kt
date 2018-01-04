@@ -1,6 +1,7 @@
 package com.wsinz.myitems.presentation
 
 import com.wsinz.myitems.domain.ItemsServiceApi
+import com.wsinz.network.base.AppWSErrorThrowable
 import com.wsinz.network.base.NetworkScheduler
 import com.wsinz.network.items.modelresponse.UserItemsResponse
 import io.reactivex.functions.Consumer
@@ -41,5 +42,11 @@ class MyItemsPresenterImpl(private val itemsServiceApi: ItemsServiceApi,
 
     private fun onFailResponseForUserItems(throwable: Throwable) {
         view?.hideProgressBar()
+
+        if (throwable is AppWSErrorThrowable) {
+            view?.showErrorDialog(throwable.error?.reason!!, { })
+        } else {
+            view?.showErrorDialog { }
+        }
     }
 }
