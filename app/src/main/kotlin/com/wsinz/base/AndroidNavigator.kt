@@ -7,4 +7,5 @@ interface AndroidNavigator {
     fun openRegisterCompany()
     fun openMainActivity()
     fun openScanItemsActivity()
+    fun openMyItemsActivity()
 }

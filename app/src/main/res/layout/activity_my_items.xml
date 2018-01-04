@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/main_background"
+        android:id="@+id/items_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
@@ -13,5 +13,13 @@
         android:id="@+id/my_items_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <ProgressBar
+        android:layout_gravity="center"
+        android:id="@+id/login_button_progress"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:theme="@style/WhiteProgressBar"
+        android:visibility="visible" />
 
 </FrameLayout>
