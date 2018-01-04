@@ -17,7 +17,7 @@ class MainPresenterImpl(private val androidNavigator: AndroidNavigator,
     }
 
     override fun itemsList() {
-
+        androidNavigator.openMyItemsActivity()
     }
 
     override fun scanNewItems() {

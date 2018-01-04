@@ -3,6 +3,7 @@ package com.wsinz.myitems.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.wsinz.R
@@ -46,5 +47,13 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
 
     override fun displayItems(items: List<ItemDataHolder>) {
 
+    }
+
+    override fun showProgressBar() {
+        my_items_progress.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        my_items_progress.visibility = View.GONE
     }
 }

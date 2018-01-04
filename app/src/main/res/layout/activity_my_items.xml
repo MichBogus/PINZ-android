@@ -16,7 +16,7 @@
 
     <ProgressBar
         android:layout_gravity="center"
-        android:id="@+id/login_button_progress"
+        android:id="@+id/my_items_progress"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:theme="@style/WhiteProgressBar"

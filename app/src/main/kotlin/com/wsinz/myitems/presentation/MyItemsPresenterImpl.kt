@@ -22,12 +22,14 @@ class MyItemsPresenterImpl(private val itemsServiceApi: ItemsServiceApi,
     }
 
     override fun gatherUserItems() {
+        view?.showProgressBar()
         networkScheduler.schedule(itemsServiceApi.getUserItems(),
                 Consumer { onSuccessResponseForUserItems(it) },
                 Consumer { onFailResponseForUserItems(it) })
     }
 
     private fun onSuccessResponseForUserItems(userItemsResponse: UserItemsResponse) {
+        view?.hideProgressBar()
         val itemsDataHolders = itemsMapper.map(userItemsResponse.items)
         itemsDataHolders.forEach {
             it.onDeleteClickAction = {
@@ -38,6 +40,6 @@ class MyItemsPresenterImpl(private val itemsServiceApi: ItemsServiceApi,
     }
 
     private fun onFailResponseForUserItems(throwable: Throwable) {
-
+        view?.hideProgressBar()
     }
 }
