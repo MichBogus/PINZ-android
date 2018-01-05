@@ -3,6 +3,7 @@ package com.wsinz.myitems.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -10,6 +11,7 @@ import com.wsinz.R
 import com.wsinz.base.BaseActivity
 import com.wsinz.base.dialog.DialogPresentation
 import com.wsinz.myitems.adapter.ItemDataHolder
+import com.wsinz.myitems.adapter.ItemsListAdapter
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_my_items.*
 import org.koin.android.ext.android.inject
@@ -48,7 +50,10 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
     }
 
     override fun displayItems(items: List<ItemDataHolder>) {
-
+        my_items_list.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = ItemsListAdapter(this@MyItemsActivity, items)
+        }
     }
 
     override fun showProgressBar() {
