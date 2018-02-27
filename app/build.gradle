@@ -12,8 +12,8 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -35,40 +35,40 @@ dependencies {
     def networkDependencies = rootProject.ext.networkDependencies
     def testDependencies = rootProject.ext.testDependencies
 
-    compile viewDependencies.supportCore
-    compile viewDependencies.supportAppCompat
-    compile viewDependencies.supportDesign
-    compile viewDependencies.constraintLayout
-    compile viewDependencies.glide
-    compile viewDependencies.glideTransformation
-    compile viewDependencies.awesomeDialogs
-    compile 'me.dm7.barcodescanner:zxing:1.9.8'
+    implementation viewDependencies.supportCore
+    implementation viewDependencies.supportAppCompat
+    implementation viewDependencies.supportDesign
+    implementation viewDependencies.constraintLayout
+    implementation viewDependencies.glide
+    implementation viewDependencies.glideTransformation
+    implementation viewDependencies.awesomeDialogs
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
 
-    compile appDependencies.multidex
-    compile appDependencies.kotlin
-    compile appDependencies.rxandroid
-    compile appDependencies.rxjava
-    compile appDependencies.rxkotlin
-    compile appDependencies.joda
+    implementation appDependencies.multidex
+    implementation appDependencies.kotlin
+    implementation appDependencies.rxandroid
+    implementation appDependencies.rxjava
+    implementation appDependencies.rxkotlin
+    implementation appDependencies.joda
 
-    compile diDependencies.koin
+    implementation diDependencies.koin
 
-    compile networkDependencies.retrofit
-    compile networkDependencies.retrofitRx
-    compile networkDependencies.gson
-    compile networkDependencies.okhttp
-    compile networkDependencies.interceptor
+    implementation networkDependencies.retrofit
+    implementation networkDependencies.retrofitRx
+    implementation networkDependencies.gson
+    implementation networkDependencies.okhttp
+    implementation networkDependencies.interceptor
 
-    testCompile testDependencies.junit
-    testCompile testDependencies.mockito
-    testCompile(testDependencies.mockitoKotlin) {
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation(testDependencies.mockitoKotlin) {
         exclude module: 'org.mockito'
     }
-    testCompile testDependencies.assertJ
-    testCompile(testDependencies.assertJAndroid) {
+    testImplementation testDependencies.assertJ
+    testImplementation(testDependencies.assertJAndroid) {
         exclude group: 'com.android.support'
     }
-    testCompile (testDependencies.gherkinator) {
-        exclude group: 'com.android.support'
-    }
+    androidTestImplementation testDependencies.gherkinator
+//    androidTestImplementation testDependencies.wiremock
+    androidTestImplementation testDependencies.espresso
 }

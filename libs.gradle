@@ -3,7 +3,7 @@ ext {
     support_library_version = '26.1.0'
     constraint_version = '1.0.2'
     dagger_version = '2.7'
-    kotlin_version = '1.1.51'
+    kotlin_version = '1.2.10'
     retrofit_version = '2.2.0'
     mutlidex_version = '1.0.1'
     rx_android_version = '2.0.1'
@@ -23,7 +23,8 @@ ext {
     koin_version = '0.5.1'
     awesome_dialogs_version = '2.0.5'
     zxinv_version = '3.5.0'
-    gherkinator_version = '1.7'
+    gherkinator_version = '1.13'
+    wiremock_version = '2.14.0'
 
     appDependencies = [
             multidex                    : "com.android.support:multidex:$mutlidex_version",
@@ -57,8 +58,12 @@ ext {
             mockitoKotlin               : "com.nhaarman:mockito-kotlin:$kotlin_mockito_version",
             assertJ                     : "org.assertj:assertj-core:$assertJ_version",
             assertJAndroid              : "org.assertj:assertj-core:$assertJ_android_version",
-            gherkinator                 : "com.codefirst.bdd:gherkinatorbdd:$gherkinator_version"
-    ]
+            gherkinator                 : "com.codefirst:gherkinatorbdd:$gherkinator_version@aar",
+            wiremock                    : "com.github.tomakehurst:wiremock:$wiremock_version",
+            espressoRunner              : 'com.android.support.test:runner:1.0.1',
+            espresso                    : 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+]
 
     networkDependencies = [
             retrofit                    : "com.squareup.retrofit2:retrofit:$retrofit_version",
