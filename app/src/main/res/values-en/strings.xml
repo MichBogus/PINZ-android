@@ -48,5 +48,6 @@
     <string name="address_street">Street name</string>
     <string name="address_street_number">Street number</string>
     <string name="address_city">City</string>
+    <string name="delete">Delete</string>
 
 </resources>

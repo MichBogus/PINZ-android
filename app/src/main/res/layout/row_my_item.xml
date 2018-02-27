@@ -1,55 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="4dp">
 
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="0dp"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Przedmiot 1 fiaediawjadwjioawdiojoadwjidawjoioadwjiowadiojadwiojwad"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/item_additional_description" />
-
-    <TextView
-        android:id="@+id/item_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text = "Opis1wdaiowadjiwadijowadjioiwadoijadiojwadiojdawjioadjioadwijoadw jioadwijo adwjioadwijdwajiadwj ioadwijoadwjiawdjioadwijoa dwj iadwjioija dwijoadwijoa"
-        android:textColor="@android:color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/item_additional_description"
-        app:layout_constraintTop_toBottomOf="@+id/item_name" />
-
-    <LinearLayout
-        android:id="@+id/item_additional_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintRight_toRightOf="parent">
+        android:background="@drawable/green_rectangle_field"
+        android:padding="6dp">
 
         <TextView
-            android:id="@+id/item_date_of_addition"
+            android:id="@+id/item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20-30-2017"
-            android:textColor="@android:color/darker_gray" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/item_additional_description"
+            android:layout_toStartOf="@+id/item_additional_description"
+            android:text="Przedmiot 1"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/item_token"
+            android:id="@+id/item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KAMA-1213"
-            android:textColor="@android:color/darker_gray" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/item_name"
+            android:layout_toLeftOf="@+id/item_additional_description"
+            android:layout_toStartOf="@+id/item_additional_description"
+            android:text=""
+            android:textColor="@android:color/white" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/item_additional_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_date_of_addition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20-30-2017"
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/item_token"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KAMA-1213"
+                android:textColor="@android:color/darker_gray" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/delete_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_description"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/green_rectangle_field"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+
+</FrameLayout>

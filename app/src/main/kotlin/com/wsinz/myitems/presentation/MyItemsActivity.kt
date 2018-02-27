@@ -29,6 +29,8 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_items)
         setBackground()
+
+        my_items_list.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onResume() {
@@ -50,10 +52,7 @@ class MyItemsActivity : BaseActivity(), MyItemsView {
     }
 
     override fun displayItems(items: List<ItemDataHolder>) {
-        my_items_list.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = ItemsListAdapter(this@MyItemsActivity, items)
-        }
+        my_items_list.adapter = ItemsListAdapter(this@MyItemsActivity, items)
     }
 
     override fun showProgressBar() {

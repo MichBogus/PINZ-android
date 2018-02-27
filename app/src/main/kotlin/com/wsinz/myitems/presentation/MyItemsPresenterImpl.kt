@@ -34,7 +34,7 @@ class MyItemsPresenterImpl(private val itemsServiceApi: ItemsServiceApi,
         val itemsDataHolders = itemsMapper.map(userItemsResponse.items)
         itemsDataHolders.forEach {
             it.onDeleteClickAction = {
-
+                deleteItem(it)
             }
         }
         view?.displayItems(itemsDataHolders)
@@ -48,5 +48,12 @@ class MyItemsPresenterImpl(private val itemsServiceApi: ItemsServiceApi,
         } else {
             view?.showErrorDialog { }
         }
+    }
+
+    override fun deleteItem(itemToken: String) {
+        view?.showProgressBar()
+        networkScheduler.schedule(itemsServiceApi.deleteItem(itemToken),
+                Consumer { gatherUserItems() },
+                Consumer { onFailResponseForUserItems(it) })
     }
 }

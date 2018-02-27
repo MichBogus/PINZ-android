@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WSINZ</string>
-    <string name="login_button">Login</string>
+    <string name="login_button">Zaloguj się</string>
     <string name="register_button">Rejestracja</string>
 
     <string name="dialog_ok_button">OK</string>
@@ -48,5 +48,6 @@
     <string name="address_street">Ulica</string>
     <string name="address_street_number">Numer ulicy</string>
     <string name="address_city">Miasto</string>
+    <string name="delete">Skasuj</string>
 
 </resources>

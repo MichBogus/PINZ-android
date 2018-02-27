@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.wsinz.R
 
-class ItemsListAdapter(val context: Context, val listOfItems: List<ItemDataHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
+class ItemsListAdapter(val context: Context,
+                       val listOfItems: List<ItemDataHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder?, position: Int) {
         holder?.bind(listOfItems[position])

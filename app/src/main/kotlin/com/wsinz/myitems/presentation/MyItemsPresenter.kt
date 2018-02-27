@@ -6,4 +6,5 @@ interface MyItemsPresenter<PresenterView> {
     fun detach()
 
     fun gatherUserItems()
+    fun deleteItem(itemToken: String)
 }
