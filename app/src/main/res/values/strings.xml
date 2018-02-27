@@ -1,33 +1,52 @@
 <resources>
     <string name="app_name">WSINZ</string>
     <string name="login_button">Login</string>
-    <string name="register_button">Register</string>
+    <string name="register_button">Rejestracja</string>
 
     <string name="dialog_ok_button">OK</string>
-    <string name="dialog_connection_problem">There is problem with internet connection</string>
-    <string name="dialog_progress">Please wait</string>
+    <string name="dialog_connection_problem">Pojawił się problem z połączeniem internetowym</string>
+    <string name="dialog_progress">Proszę czekać</string>
 
     <string name="register_company_success_title">Yaahooo!</string>
-    <string name="register_company_success_message">Your company has been registered, your company code is: %s </string>
-    <string name="register_company_error_title">Oh no!</string>
+    <string name="register_company_success_message">Twoja firma została zarejestrowana, jej kod to: %s </string>
+    <string name="register_company_error_title">Oh nie!</string>
 
     <string name="register_user_success_title">Yaahooo!</string>
-    <string name="register_user_success_message">Your account has been created</string>
-    <string name="register_user_error_title">Oh no!</string>
+    <string name="register_user_success_message">Twoje konto zostało stworzone</string>
+    <string name="register_user_error_title">Oh nie!</string>
 
-    <string name="register_user_password_confirmation_error">Password does not match</string>
+    <string name="register_user_password_confirmation_error">Hasło nie pasuje</string>
 
-    <string name="login_error_title">Oh no!</string>
+    <string name="login_error_title">Oh nie!</string>
 
-    <string name="main_my_items_button">My items</string>
-    <string name="main_scan_button">Scan new items</string>
-    <string name="main_log_out_button">Log out</string>
+    <string name="main_my_items_button">Moje przedmioty</string>
+    <string name="main_scan_button">Zeskanuj nowy przedmiot</string>
+    <string name="main_log_out_button">Wyloguj się</string>
 
-    <string name="scan_item_error_title">Oh no!</string>
+    <string name="scan_item_error_title">Oh nie!</string>
     <string name="scan_item_success_title">Yaahooo!</string>
-    <string name="scan_item_wrong_qr_message">Scanned QR code is wrong</string>
-    <string name="scan_item_success_message">Scanned item has been connected with your account</string>
+    <string name="scan_item_wrong_qr_message">Zeskanowany kod QR jest niewłaściwy</string>
+    <string name="scan_item_success_message">Zeskanowany przedmiot został powiązany z Twoim kontem</string>
 
-    <string name="my_items_error_title">Oh no!</string>
+    <string name="my_items_error_title">Oh nie!</string>
+
+    <string name="login_view_welcome_message">To jest Twoja aplikacja do inwentaryzacji sprzętowej</string>
+    <string name="login_view_welcome_header">Witaj!</string>
+    <string name="username">Nazwa użytkownika</string>
+    <string name="password">Hasło</string>
+    <string name="password_confirm">Powtórz hasło</string>
+    <string name="login_view_dont_have_account_message">Nie posiadasz jeszcze konta?</string>
+    <string name="register_user">Zarejestruj użytkownika</string>
+    <string name="register_your_company">Zarejestruj swoją firmę</string>
+    <string name="name">Imię</string>
+    <string name="last_name">Nazwisko</string>
+    <string name="company_code">Kod firmy</string>
+    <string name="register_user_welcome_message">Tutaj wpisz informację o swoim koncie</string>
+    <string name="register_company_welcome_message">Tutaj wpisz informację o swojej firmie</string>
+    <string name="company_name">Nazwa firmy</string>
+    <string name="company_nip">NIP</string>
+    <string name="address_street">Ulica</string>
+    <string name="address_street_number">Numer ulicy</string>
+    <string name="address_city">Miasto</string>
 
 </resources>

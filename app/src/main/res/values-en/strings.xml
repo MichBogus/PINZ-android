@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSINZ</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+
+    <string name="dialog_ok_button">OK</string>
+    <string name="dialog_connection_problem">There is problem with internet connection</string>
+    <string name="dialog_progress">Please wait</string>
+
+    <string name="register_company_success_title">Yaahooo!</string>
+    <string name="register_company_success_message">Your company has been registered, your company code is: %s </string>
+    <string name="register_company_error_title">Oh no!</string>
+
+    <string name="register_user_success_title">Yaahooo!</string>
+    <string name="register_user_success_message">Your account has been created</string>
+    <string name="register_user_error_title">Oh no!</string>
+
+    <string name="register_user_password_confirmation_error">Password does not match</string>
+
+    <string name="login_error_title">Oh no!</string>
+
+    <string name="main_my_items_button">My items</string>
+    <string name="main_scan_button">Scan new items</string>
+    <string name="main_log_out_button">Log out</string>
+
+    <string name="scan_item_error_title">Oh no!</string>
+    <string name="scan_item_success_title">Yaahooo!</string>
+    <string name="scan_item_wrong_qr_message">Scanned QR code is wrong</string>
+    <string name="scan_item_success_message">Scanned item has been connected with your account</string>
+
+    <string name="my_items_error_title">Oh no!</string>
+
+    <string name="login_view_welcome_message">This is your application to stocktaking your property</string>
+    <string name="login_view_welcome_header">Welcome!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_view_dont_have_account_message">Don\'t have the account yet?</string>
+    <string name="register_user">Register user</string>
+    <string name="register_your_company">Register your company</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="company_code">Company code</string>
+    <string name="register_user_welcome_message">Here are some information about your account</string>
+    <string name="register_company_welcome_message">Here are some information about your company</string>
+    <string name="company_name">Company name</string>
+    <string name="company_nip">Company NIP</string>
+    <string name="address_street">Street name</string>
+    <string name="address_street_number">Street number</string>
+    <string name="address_city">City</string>
+
+</resources>
