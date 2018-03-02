@@ -7,11 +7,11 @@
     <string name="dialog_connection_problem">Pojawił się problem z połączeniem internetowym</string>
     <string name="dialog_progress">Proszę czekać</string>
 
-    <string name="register_company_success_title">Yaahooo!</string>
+    <string name="register_company_success_title">Rejestracja</string>
     <string name="register_company_success_message">Twoja firma została zarejestrowana, jej kod to: %s </string>
     <string name="register_company_error_title">Oh nie!</string>
 
-    <string name="register_user_success_title">Yaahooo!</string>
+    <string name="register_user_success_title">Rejestracja</string>
     <string name="register_user_success_message">Twoje konto zostało stworzone</string>
     <string name="register_user_error_title">Oh nie!</string>
 
@@ -24,7 +24,7 @@
     <string name="main_log_out_button">Wyloguj się</string>
 
     <string name="scan_item_error_title">Oh nie!</string>
-    <string name="scan_item_success_title">Yaahooo!</string>
+    <string name="scan_item_success_title">Skanowanie</string>
     <string name="scan_item_wrong_qr_message">Zeskanowany kod QR jest niewłaściwy</string>
     <string name="scan_item_success_message">Zeskanowany przedmiot został powiązany z Twoim kontem</string>
 

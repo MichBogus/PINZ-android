@@ -8,3 +8,10 @@ Feature: This test suite is all about login view and its controls
     And: I can see register company button
     And: I can see login field
     And: I can see password field
+
+    Scenario: I can see progress view after pressing login button
+      Given I open application
+      When: I can see LoginActivity
+      And: I press login button
+      Then: I can see progress bar on login button
+
